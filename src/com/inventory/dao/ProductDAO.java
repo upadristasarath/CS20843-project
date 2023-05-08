@@ -86,6 +86,7 @@ public class ProductDAO {
 			// For isolation
 			myConn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 
+			// Here due to on delete cascade, it will delete product and stock .
 			// create sql to delete product (parent table)
 			String sql = "delete from product where prod=?";
 
@@ -125,6 +126,7 @@ public class ProductDAO {
 			// For isolation
 			myConn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 
+			// Here due to on update cascade, prod will change in product table and stock table.
 			// create SQL update statement
 			String sql = "update product " + "set prod=?" + " where prod=?";
 
