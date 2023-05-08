@@ -63,7 +63,7 @@ public class ProductDAO {
 		} catch (SQLException e) {
 			System.out.println("An exception was thrown");
 			// For atomicity
-			myConn.rollback();
+//			myConn.rollback();
 		} finally {
 			// close JDBC objects
 			close(myConn, myStmt, myRs);
@@ -86,19 +86,8 @@ public class ProductDAO {
 			// For isolation
 			myConn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 
-			// create sql to delete stock (child table)
-			String sql = "delete from stock where prod=?";
-
-			// prepare statement
-			myStmt = myConn.prepareStatement(sql);
-			// set params
-			myStmt.setString(1, productId);
-
-			// execute sql statement
-			myStmt.execute();
-
 			// create sql to delete product (parent table)
-			sql = "delete from product where prod=?";
+			String sql = "delete from product where prod=?";
 
 			// prepare statement
 			myStmt = myConn.prepareStatement(sql);
@@ -259,7 +248,7 @@ public class ProductDAO {
 			// Commit the transaction For atomocity, consistency, durability
 			myConn.commit();
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("An exception was thrown");
 			// For atomicity
 			myConn.rollback();
@@ -336,7 +325,7 @@ public class ProductDAO {
 				stockList.add(stock);
 			}
 			return theProduct;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("An exception was thrown");
 			throw e;
 		} finally {
@@ -374,7 +363,7 @@ public class ProductDAO {
 
 			// Commit the transaction For atomocity, consistency, durability
 			myConn.commit();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("An exception was thrown");
 			// For atomicity
 			myConn.rollback();
@@ -428,10 +417,10 @@ public class ProductDAO {
 			}
 
 			return stockList;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("An exception was thrown");
 			// For atomicity
-			myConn.rollback();
+//			myConn.rollback();
 		} finally {
 			// close JDBC objects
 			close(myConn, myStmt, myRs);
