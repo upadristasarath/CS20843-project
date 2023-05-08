@@ -186,13 +186,13 @@ public class ProductControllerServlet extends HttpServlet {
 		// The product p1 changes its name to pp1 in Product and Stock.
 		// read product info from form data
 		String productId = request.getParameter("prod");
-		String productName = request.getParameter("pname");
-		Integer price = Integer.parseInt(request.getParameter("price"));
+		String updatedProduct = request.getParameter("updatedProduct");
+//		Integer price = Integer.parseInt(request.getParameter("price"));
 
 		// create a new Product object
-		Product theProduct = new Product(productId, productName, price);
+		Product theProduct = new Product(productId, updatedProduct);
 
-		// perform update on database
+		// perform update on database (on update cascade)
 		productDAO.updateProduct(theProduct);
 
 		// send them back to the "list products" page

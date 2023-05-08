@@ -8,6 +8,7 @@ public class Product {
 	private Integer price;
 	private Stock stock;
 	private List<Stock> stockList;
+	private String updatedProduct;
 	
 	public Product(String prod, String pname, Integer price) {
 		super();
@@ -15,6 +16,14 @@ public class Product {
 		this.pname = pname;
 		this.price = price;
 	}
+	
+	public Product(String prod, String updatedProduct) {
+		super();
+		this.prod = prod;
+		this.updatedProduct = updatedProduct;
+	}
+
+
 
 	public String getProd() {
 		return prod;
@@ -54,6 +63,14 @@ public class Product {
 
 	public void setStock(Stock stock) {
 		this.stock = stock;
+	}
+	
+	public String getUpdatedProduct() {
+		return updatedProduct;
+	}
+
+	public void setUpdatedProduct(String updatedProduct) {
+		this.updatedProduct = updatedProduct;
 	}
 
 	@Override

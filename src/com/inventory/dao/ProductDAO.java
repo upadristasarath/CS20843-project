@@ -126,15 +126,14 @@ public class ProductDAO {
 			myConn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 
 			// create SQL update statement
-			String sql = "update product " + "set pname=?, price=?" + " where prod=?";
+			String sql = "update product " + "set prod=?" + " where prod=?";
 
 			// prepare statement
 			myStmt = myConn.prepareStatement(sql);
 
 			// set params
-			myStmt.setString(1, theProduct.getPname());
-			myStmt.setInt(2, Integer.valueOf(theProduct.getPrice()));
-			myStmt.setString(3, theProduct.getProd());
+			myStmt.setString(1, theProduct.getUpdatedProduct());
+			myStmt.setString(2, theProduct.getProd());
 
 			// execute SQL statement
 			myStmt.execute();

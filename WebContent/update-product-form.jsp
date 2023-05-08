@@ -28,22 +28,16 @@
 				<tbody>
 					<tr>
 						<td><label>Product Id:</label></td>
-						<td><input type="text" name="prod" 
+						<td><input type="text" name="prod" readonly="true"
 								   value="${THE_PRODUCT.prod}" /></td>
 					</tr>
 
 					<tr>
-						<td><label>Product Name:</label></td>
-						<td><input type="text" name="pname" 
-								   value="${THE_PRODUCT.pname}" /></td>
+						<td><label>Updated Product Id:</label></td>
+						<td><input type="text" name="updatedProduct" 
+								   value="${THE_PRODUCT.updatedProduct}" /></td>
 					</tr>
 
-					<tr>
-						<td><label>Price:</label></td>
-						<td><input type="text" name="price" 
-								   value="${THE_PRODUCT.price}" /></td>
-					</tr>
-					
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save" /></td>
